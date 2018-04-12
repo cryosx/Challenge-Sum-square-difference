@@ -8,20 +8,18 @@
 class SumOfASquare {
   constructor(naturalNumbers) {
     this.naturalNumbers = naturalNumbers;
-    this.sumOfSquares = this.sumOfSquares.bind(null, this.naturalNumbers);
-    this.squareOfTheSums = this.squareOfTheSums.bind(null, this.naturalNumbers);
   }
 
-  sumOfSquares(num) {
+  sumOfSquares() {
     let result = 0;
-    for (let i = 1; i <= num; i++) {
+    for (let i = 1; i <= this.naturalNumbers; i++) {
       result += Math.pow(i, 2);
     }
     return result;
   }
-  squareOfTheSums(num) {
+  squareOfTheSums() {
     let sum = 0;
-    for (let i = 1; i <= num; i++) {
+    for (let i = 1; i <= this.naturalNumbers; i++) {
       sum += i;
     }
     return Math.pow(sum, 2);
