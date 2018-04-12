@@ -9,10 +9,16 @@ exports.SumOfASquare = SumOfASquare;
 function SumOfASquare(naturalNumbers) {
   this.naturalNumbers = naturalNumbers;
 
-  return {
-    sumOfSquares: sumOfSquares.bind(null, naturalNumbers),
-    squareOfTheSums: squareOfTheSums.bind(null, naturalNumbers)
-  };
+  SumOfASquare.prototype.sumOfSquares = sumOfSquares.bind(this, naturalNumbers);
+  SumOfASquare.prototype.squareOfTheSums = squareOfTheSums.bind(
+    this,
+    naturalNumbers
+  );
+
+  // return {
+  //   sumOfSquares: sumOfSquares.bind(null, naturalNumbers),
+  //   squareOfTheSums: squareOfTheSums.bind(null, naturalNumbers)
+  // };
 
   function sumOfSquares(num) {
     let result = 0;
