@@ -4,30 +4,22 @@
  *  @method sumOfSquares()       returns ths sum of all 'naturalNumbers' squared
  *  @method squareOfTheSums()    returns the square of all 'naturalNumbers'
  */
-exports.SumOfASquare = SumOfASquare;
 
-function SumOfASquare(naturalNumbers) {
-  this.naturalNumbers = naturalNumbers;
+class SumOfASquare {
+  constructor(naturalNumbers) {
+    this.naturalNumbers = naturalNumbers;
+    this.sumOfSquares = this.sumOfSquares.bind(null, this.naturalNumbers);
+    this.squareOfTheSums = this.squareOfTheSums.bind(null, this.naturalNumbers);
+  }
 
-  SumOfASquare.prototype.sumOfSquares = sumOfSquares.bind(this, naturalNumbers);
-  SumOfASquare.prototype.squareOfTheSums = squareOfTheSums.bind(
-    this,
-    naturalNumbers
-  );
-
-  // return {
-  //   sumOfSquares: sumOfSquares.bind(null, naturalNumbers),
-  //   squareOfTheSums: squareOfTheSums.bind(null, naturalNumbers)
-  // };
-
-  function sumOfSquares(num) {
+  sumOfSquares(num) {
     let result = 0;
     for (let i = 1; i <= num; i++) {
       result += Math.pow(i, 2);
     }
     return result;
   }
-  function squareOfTheSums(num) {
+  squareOfTheSums(num) {
     let sum = 0;
     for (let i = 1; i <= num; i++) {
       sum += i;
@@ -35,6 +27,8 @@ function SumOfASquare(naturalNumbers) {
     return Math.pow(sum, 2);
   }
 }
+
+exports.SumOfASquare = SumOfASquare;
 
 // do work here
 
